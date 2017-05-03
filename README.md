@@ -29,5 +29,26 @@ $ ./run.sh ...
 ```
 
 ## Run options
+All command line arguments after `run.sh` will be executed inside the docker container. To compile a tex document, place it in the same directory as `run.sh` and type:
 
+```bash
+$ ./run.sh pdflatex your_latex_doc.tex
+```
 
+A more extensive example that executes multiple commands (latex compile, makeindex and biber) inside the container:
+```bash
+$ ./run.sh /bin/sh -c "pdflatex your_latex_doc.tex && \
+    makeindex your_latex_doc.nlo -s nomencl.ist -o your_latex_doc.nls && \
+    biber your_latex_doc &&  \
+    pdflatex your_latex_doc.tex &&  \
+    pdflatex your_latex_doc.tex"
+```
+
+## Scripts
+
+| name       | description |
+| ---        | ---         |
+| `bash.sh`  | Start the container and access it via bash. |
+| `build.sh` | Build the container locally using the Dockerfile. |
+| `run.sh`   | Start the container, map the current path at the host promt as a data volume and execute the script's command line arguments inside the container. See examples in the previous section. |
+| `stop-rm.sh` | Some commands to quickly remove the container or the image. |
