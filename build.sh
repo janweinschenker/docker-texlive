@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t weinschenker/docker-texlive .
+docker build -t weinschenker/docker-texlive:latest .

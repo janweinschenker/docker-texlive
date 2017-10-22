@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 MAINTAINER Jan Weinschenker <jan.weinschenker@holisticon.de>
 ENV DEBIAN_FRONTEND noninteractive
 ADD VERSION .
